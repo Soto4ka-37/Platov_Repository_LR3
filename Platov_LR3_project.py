@@ -8,7 +8,15 @@ def zadanie_1(X: int, A: int):
     return True
 
 def zadanie_2(X: int, A: int):
-    pass
+    n = 0
+    for bukva in str(X):
+        print(bukva)
+        if bukva == str(A):
+            n += 1
+    if n > 2:
+        return True
+    return False
+
 def vernoNenverno(a: bool):
     return "-----------------------------\n" + ("Верно" if a else "Неверно") + "\n-----------------------------"
 
