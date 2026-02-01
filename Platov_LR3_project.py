@@ -3,7 +3,10 @@
 # - верно ли, что в числе X нет данной цифры А
 # - верно ли, что в числе X цифра А встречается более двух раз
 def zadanie_1(X: int, A: int):
-    pass
+    if str(A) in str(X):
+        return False
+    return True
+
 def zadanie_2(X: int, A: int):
     pass
 def vernoNenverno(a: bool):
