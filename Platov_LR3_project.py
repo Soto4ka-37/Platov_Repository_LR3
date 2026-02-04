@@ -2,6 +2,15 @@
 # - ввести цифру A
 # - верно ли, что в числе X нет данной цифры А
 # - верно ли, что в числе X цифра А встречается более двух раз
+
+def input_x():
+    while True:
+        try:
+            n = int(input('Введите число X -> '))
+            return n
+        except ValueError:
+            continue
+            
 def zadanie_1(X: int, A: int):
     if str(A) in str(X):
         return False
@@ -20,7 +29,6 @@ def zadanie_2(X: int, A: int):
 def vernoNenverno(a: bool):
     return "-----------------------------\n" + ("Верно" if a else "Неверно") + "\n-----------------------------"
 
-X = int(input("Перед запуском программы введите число X -> "))
 
 while True:
     A = input("Перед запуском программы введите цифру A -> ")
@@ -30,12 +38,14 @@ while True:
     A = int(A)
     break
 
+X = input_x()
 while True:
     print(
         (
             "Меню\n"
             "1) Верно ли, что в числе X нет данной цифры А\n"
             "2) Верно ли, что в числе X цифра А встречается более двух раз\n"
+            "3) Заменить X на новое значание\n"
             "0) Выход"
         )
     )
@@ -46,3 +56,5 @@ while True:
         print(vernoNenverno(zadanie_1(X,A)))
     elif i == '2':
         print(vernoNenverno(zadanie_2(X,A)))
+    elif i == '3':
+        X = input_x()
