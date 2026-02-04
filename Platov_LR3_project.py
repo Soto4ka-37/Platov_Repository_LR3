@@ -11,6 +11,19 @@ def input_x():
         except ValueError:
             continue
             
+def input_a():
+    while True:
+        A = input("Перед запуском программы введите цифру A -> ")
+        if len(A.strip()) != 1:
+            print("Должна быть введена одна цифра")
+            continue
+        try:
+            A = int(A)
+        except ValueError:
+            continue
+        break
+
+
 def zadanie_1(X: int, A: int):
     if str(A) in str(X):
         return False
@@ -29,16 +42,9 @@ def zadanie_2(X: int, A: int):
 def vernoNenverno(a: bool):
     return "-----------------------------\n" + ("Верно" if a else "Неверно") + "\n-----------------------------"
 
-
-while True:
-    A = input("Перед запуском программы введите цифру A -> ")
-    if len(A.strip()) != 1:
-        print("Должна быть введена одна цифра")
-        continue
-    A = int(A)
-    break
-
+print('Перед запуском программы необходимо ввести переменные, их можно будет изменить позже')
 X = input_x()
+A = input_a()
 while True:
     print(
         (
@@ -46,10 +52,11 @@ while True:
             "1) Верно ли, что в числе X нет данной цифры А\n"
             "2) Верно ли, что в числе X цифра А встречается более двух раз\n"
             "3) Заменить X на новое значание\n"
+            "4) Заменить A на новое значение\n"
             "0) Выход"
         )
     )
-    i = input('Введите число ->')
+    i = input('Введите число -> ')
     if i == '0':
         break
     elif i == '1':
@@ -58,3 +65,5 @@ while True:
         print(vernoNenverno(zadanie_2(X,A)))
     elif i == '3':
         X = input_x()
+    elif i == '4':
+        A = input_a()
